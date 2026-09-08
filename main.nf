@@ -13,9 +13,9 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { FASTK_GENOME_STATISTICS  } from './workflows/fastk_genome_statistics'
-include { PIPELINE_INITIALISATION } from './subworkflows/local/utils_nfcore_fastk_genome_statistics_pipeline'
-include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_fastk_genome_statistics_pipeline'
+include { FASTK_GENOME_STATISTICS   } from './workflows/fastk_genome_statistics'
+include { PIPELINE_INITIALISATION   } from './subworkflows/local/utils_nfcore_fastk_genome_statistics_pipeline'
+include { PIPELINE_COMPLETION       } from './subworkflows/local/utils_nfcore_fastk_genome_statistics_pipeline'
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     NAMED WORKFLOWS FOR PIPELINE
@@ -28,7 +28,8 @@ include { PIPELINE_COMPLETION     } from './subworkflows/local/utils_nfcore_fast
 workflow SANGERTOL_FASTK_GENOME_STATISTICS {
 
     take:
-    samplesheet // channel: samplesheet read in from --input
+    assemblies // channel: assemblies read in from --input
+    reads      // channel: reads read in from --reads
 
     main:
 
@@ -36,7 +37,8 @@ workflow SANGERTOL_FASTK_GENOME_STATISTICS {
     // WORKFLOW: Run pipeline
     //
     FASTK_GENOME_STATISTICS (
-        samplesheet,
+        assemblies,
+        reads,
         params.outdir,
     )
 }
@@ -68,7 +70,9 @@ workflow {
     // WORKFLOW: Run main workflow
     //
     SANGERTOL_FASTK_GENOME_STATISTICS (
-        PIPELINE_INITIALISATION.out.samplesheet
+        PIPELINE_INITIALISATION.out.ch_assemblies,
+        PIPELINE_INITIALISATION.out.ch_reads,
+        params.outdir
     )
     //
     // SUBWORKFLOW: Run completion tasks
