@@ -89,14 +89,14 @@ workflow PIPELINE_INITIALISATION {
         tuple( [ id: params.sample ], params.input)
     )
 
-    ch_reads = channel.of(
+    ch_longreads = channel.of(
         tuple( [ id: params.sample ], params.longreads)
     )
 
 
     emit:
     assemblies  = ch_assemblies
-    reads       = ch_reads
+    longreads   = ch_longreads
     versions    = ch_versions
 }
 

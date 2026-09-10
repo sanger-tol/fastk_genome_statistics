@@ -79,16 +79,18 @@ workflow GENOME_STATISTICS {
     // Module: assess kmer completeness/QV using MerquryFK.
     //
     ch_merquryfk_asm_input = ch_assemblies
-        .flatMap { meta, asms ->
+        .combine(ch_fastk, by: 0)
+        .flatMap { meta, asms, fk_hist, fk_ktabs, mat_ktabs, pat_ktabs ->
+            def tuples = []
             if (asms.size() <= 2) {
-                [[meta + [_hap: "hap1"], asms[0], asms.drop(1)]]
+                tuples << tuple(meta + [_hap: "hap1"], asms[0], asms.drop(1), fk_hist, fk_ktabs, mat_ktabs, pat_ktabs)
             } else {
-                asms.withIndex().collect { asm, idx ->
-                    [meta + [_hap: "hap${idx + 1}"], asm, asms - [asm]]
+                asms.eachWithIndex { asm, idx ->
+                    tuples << tuple(meta + [_hap: "hap${idx + 1}"], asm, asms - [asm], fk_hist, fk_ktabs, mat_ktabs, pat_ktabs)
                 }
             }
+            return tuples
         }
-        .combine(ch_fastk, by: 0)
         .multiMap { meta, pri, alt, fk_hist, fk_ktabs, mat_ktabs, pat_ktabs ->
             asms: [meta, fk_hist, fk_ktabs, pri, alt]
             mat: [meta, mat_ktabs]
