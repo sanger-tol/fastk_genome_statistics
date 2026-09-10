@@ -7,7 +7,8 @@
 include { FASTK_FASTK           } from '../modules/nf-core/fastk/fastk/main'
 include { FASTK_HISTEX          } from '../modules/nf-core/fastk/histex/main'
 include { GENOMESCOPE2          } from '../modules/nf-core/genomescope2/main'
-include { MERQURYFK_PLOIDYPLOT  } from '../modules/nf-core/merquryfk/ploidyplot/main'
+include { SMUDGEPLOT_HETMERS    } from '../modules/local/smudgeplot/hetmers/main'
+include { SMUDGEPLOT_ALL        } from '../modules/local/smudgeplot/all/main'
 include { GENOME_STATISTICS     } from '../subworkflows/sanger-tol/genome_statistics/main'
 
 
@@ -50,36 +51,46 @@ workflow FASTK_GENOME_STATISTICS {
 
 
     //
-    // SUBWORKFLOW: GENOMESTATISTICS RUNS ASMSTATS AND GFSTATS
-    //              BUSCO WILL NOT BE USED FOR THIS CONTEXT
+    // MODULE:
     //
-
-    def fastk_data = FASTK_FASTK.out.hist
-        .combine(FASKT_FASTK.out.ktab, by: 0)
-        .map { meta, hist, ktab_list ->
-            tuple(meta, hist, ktab_list, [], [])
-        }
-
-    fastk_data.view{ "FASTK_DATA: $it" }
-
-    GENOMESTATISTICS(
-        ch_assemblies,
-        fastk_data,
-        [[:],[]],
-        []
+    GENOMESCOPE2(
+        FASTK_HISTEX.out.hist
     )
 
 
     //
-    // MODULE: ALSO KNOWN AS SMUDGEPLOT
+    // MODULE: RUN SMUDGEPLOT
     //
-    merqury_pp = FASTK_FASTK.out.hist
-        .combine(FASKT_FASTK.out.ktab, by: 0)
+    SMUDGEPLOT_HETMERS(
+        FASTK_FASTK.out.ktab
+    )
 
-    ch_merqury_pp.view{"M_PP: $it"}
+    SMUDGEPLOT_ALL(
+        SMUDGEPLOT_HETMERS.out.kmer_cov
+    )
 
-    MERQURYFK_PLOIDYPLOT(
-        ch_merqury_pp
+
+    //
+    // LOGIC: SETUP CHANNEL FOR GENOME_STATISTICS AND MERQURYFK_PLOIDYPLOT
+    //
+    def fastk_data = FASTK_FASTK.out.hist
+        .combine(FASTK_FASTK.out.ktab, by: 0)
+        .map { meta, hist, ktab_list ->
+            tuple(meta, hist, ktab_list)
+        }
+
+
+    //
+    // SUBWORKFLOW: GENOMESTATISTICS RUNS ASMSTATS AND GFSTATS
+    //              BUSCO WILL NOT BE USED FOR THIS CONTEXT
+    //
+    GENOME_STATISTICS(
+        ch_assemblies,
+        fastk_data.map{ meta, hist, ktab_list ->
+            tuple(meta, hist, ktab_list, [], [])
+        },
+        channel.empty(),
+        channel.empty()
     )
 
 
