@@ -30,6 +30,7 @@ workflow SANGERTOL_FASTK_GENOME_STATISTICS {
     take:
     assemblies // channel: assemblies read in from --input
     reads      // channel: reads read in from --reads
+    outdir     // channel: output directory
 
     main:
 
@@ -39,7 +40,7 @@ workflow SANGERTOL_FASTK_GENOME_STATISTICS {
     FASTK_GENOME_STATISTICS (
         assemblies,
         reads,
-        params.outdir,
+        outdir,
     )
 }
 /*
@@ -70,8 +71,8 @@ workflow {
     // WORKFLOW: Run main workflow
     //
     SANGERTOL_FASTK_GENOME_STATISTICS (
-        PIPELINE_INITIALISATION.out.ch_assemblies,
-        PIPELINE_INITIALISATION.out.ch_reads,
+        PIPELINE_INITIALISATION.out.assemblies,
+        PIPELINE_INITIALISATION.out.longreads,
         params.outdir
     )
     //

@@ -34,11 +34,6 @@
                         "branch": "master",
                         "git_sha": "89ddac6065d90fe246fa7f86bfec311023c9424f",
                         "installed_by": ["genome_statistics"]
-                    },
-                    "merquryfk/ploidyplot": {
-                        "branch": "master",
-                        "git_sha": "5909fc046b4b2062e4b4173808aacd2424e0866a",
-                        "installed_by": ["modules"]
                     }
                 }
             },

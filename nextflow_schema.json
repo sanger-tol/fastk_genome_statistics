@@ -10,14 +10,19 @@
             "type": "object",
             "fa_icon": "fas fa-terminal",
             "description": "Define where the pipeline should find input data and save output data.",
-            "required": ["sample", "input", "reads", "outdir"],
+            "required": ["sample", "input", "longreads", "outdir"],
             "properties": {
                 "sample": {
                     "type": "string",
                     "description": "Sample name",
                     "help_text": "ID for the sample to process",
-                    "fa_icon": "fas fa-file-signature",
-                    "exists": true
+                    "fa_icon": "fas fa-sample"
+                },
+                "kmer_length": {
+                    "type": "integer",
+                    "description": "K-mer length",
+                    "help_text": "K-mer length for the fastk analysis",
+                    "fa_icon": "fas fa-hashtag"
                 },
                 "input": {
                     "type": "array",
@@ -36,9 +41,9 @@
                     "items": {
                         "type": "string",
                         "format": "path",
-                        "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$"
+                        "pattern": "(^\\S+\\.fn?a(sta)?(\\.gz)?)$|(^\\S+\\.fa(stq)?(\\.gz)?)$"
                     },
-                    "description": "Input read files",
+                    "description": "Input read files in zipped fastq or fasta format",
                     "help_text": "You need the input read file array",
                     "fa_icon": "fas fa-file-signature",
                     "exists": true
