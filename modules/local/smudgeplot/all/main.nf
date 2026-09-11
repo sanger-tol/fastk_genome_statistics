@@ -11,9 +11,7 @@ process SMUDGEPLOT_ALL {
     tuple val(meta), path(smu)
 
     output:
-    tuple val(meta), path("*_centralities.png"), emit: centrality_png
-    tuple val(meta), path("*_smudgeplot.png"), emit: smudgeplot_png
-    tuple val(meta), path("*_smudgeplot_log10.png"), emit: log10_png
+    tuple val(meta), path("*.png"), emit: png
     tuple val(meta), path("*_centralities.txt"), emit: centrality_txt
     tuple val(meta), path("*.smudge_report.tsv"), emit: smudge_report
     tuple val(meta), path("*.sma"), emit: sma

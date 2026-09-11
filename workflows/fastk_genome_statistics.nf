@@ -122,8 +122,30 @@ workflow FASTK_GENOME_STATISTICS {
             sort: true,
             newLine: true
         )
+
     emit:
-    versions       = ch_versions                 // channel: [ path(versions.yml) ]
+    gs_stats                    = GENOME_STATISTICS.out.stats
+    gs_asmstats                 = GENOME_STATISTICS.out.asmstats
+    gs_gfastats                 = GENOME_STATISTICS.out.gfastats
+    gs_merqury                  = GENOME_STATISTICS.out.merqury
+    gs_merqury_qv               = GENOME_STATISTICS.out.merqury_qv
+    gs_merqury_completeness     = GENOME_STATISTICS.out.merqury_completeness
+    gs_merqury_phased_stats     = GENOME_STATISTICS.out.merqury_phased_stats
+    gs_merqury_images           = GENOME_STATISTICS.out.merqury_images
+    fastk_ktabs                 = FASTK_FASTK.out.ktab
+    fastk_hist                  = FASTK_FASTK.out.hist
+    genomescope_lin_plot        = GENOMESCOPE2.out.linear_plot_png
+    genomescope_trans_lin_plot  = GENOMESCOPE2.out.transformed_linear_plot_png
+    genomescope_log_plot        = GENOMESCOPE2.out.log_plot_png
+    genomescope_trans_log_plot  = GENOMESCOPE2.out.transformed_log_plot_png
+    genomescope_model           = GENOMESCOPE2.out.model
+    genomescope_summary         = GENOMESCOPE2.out.summary
+    genomescope_json_report     = GENOMESCOPE2.out.json_report
+    smudgeplot_report           = SMUDGEPLOT_ALL.out.smudge_report
+    smudgeplot_png              = SMUDGEPLOT_ALL.out.png
+    smudgeplot_centrality_txt   = SMUDGEPLOT_ALL.out.centrality_txt
+
+    versions                    = ch_collated_versions                 // channel: [ path(versions.yml) ]
 }
 
 /*
