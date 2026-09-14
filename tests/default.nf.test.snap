@@ -1,0 +1,137 @@
+{
+    "-profile test": {
+        "content": [
+            {
+                "ASMSTATS": {
+                    "asmstats": "1.0.0",
+                    "seqtk": "1.5-r133"
+                },
+                "FASTK_FASTK": {
+                    "fastk": 1.2
+                },
+                "FASTK_HISTEX": {
+                    "fastk": 1.2
+                },
+                "GENOMESCOPE2": {
+                    "genomescope2": 2.0
+                },
+                "GFASTATS": {
+                    "gfastats": "1.3.11"
+                },
+                "MERQURYFK_MERQURYFK": {
+                    "R": "4.3.3",
+                    "fastk": 1.2,
+                    "merquryfk": 1.2
+                },
+                "SMUDGEPLOT_ALL": {
+                    "fastk": 1.2,
+                    "smudgeplot": "0.5.3"
+                },
+                "SMUDGEPLOT_HETMERS": {
+                    "fastk": 1.2,
+                    "smudgeplot": "0.5.3"
+                },
+                "Workflow": {
+                    "sanger-tol/fastk_genome_statistics": "v0.1.0"
+                }
+            },
+            [
+                "Acropora_cervicornis_ALL",
+                "Acropora_cervicornis_ALL/fastk",
+                "Acropora_cervicornis_ALL/fastk/.Acropora_cervicornis.ktab.1",
+                "Acropora_cervicornis_ALL/fastk/.Acropora_cervicornis.ktab.2",
+                "Acropora_cervicornis_ALL/fastk/.Acropora_cervicornis.ktab.3",
+                "Acropora_cervicornis_ALL/fastk/.Acropora_cervicornis.ktab.4",
+                "Acropora_cervicornis_ALL/fastk/Acropora_cervicornis.hist",
+                "Acropora_cervicornis_ALL/fastk/Acropora_cervicornis.ktab",
+                "Acropora_cervicornis_ALL/genomescope",
+                "Acropora_cervicornis_ALL/genomescope/Acropora_cervicornis_linear_plot.png",
+                "Acropora_cervicornis_ALL/genomescope/Acropora_cervicornis_log_plot.png",
+                "Acropora_cervicornis_ALL/genomescope/Acropora_cervicornis_model.txt",
+                "Acropora_cervicornis_ALL/genomescope/Acropora_cervicornis_report.json",
+                "Acropora_cervicornis_ALL/genomescope/Acropora_cervicornis_summary.txt",
+                "Acropora_cervicornis_ALL/genomescope/Acropora_cervicornis_transformed_linear_plot.png",
+                "Acropora_cervicornis_ALL/genomescope/Acropora_cervicornis_transformed_log_plot.png",
+                "Acropora_cervicornis_ALL/smudgeplot",
+                "Acropora_cervicornis_ALL/smudgeplot/Acropora_cervicornis.smudge_report.tsv",
+                "Acropora_cervicornis_ALL/smudgeplot/Acropora_cervicornis_centralities.png",
+                "Acropora_cervicornis_ALL/smudgeplot/Acropora_cervicornis_centralities.txt",
+                "Acropora_cervicornis_ALL/smudgeplot/Acropora_cervicornis_smudgeplot.png",
+                "Acropora_cervicornis_ALL/smudgeplot/Acropora_cervicornis_smudgeplot_log10.png",
+                "Acropora_cervicornis_hap1",
+                "Acropora_cervicornis_hap1/merqury",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.GCA_964034985.1.subset.spectra-cn.fl.png",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.GCA_964034985.1.subset.spectra-cn.ln.png",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.GCA_964034985.1.subset.spectra-cn.st.png",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.completeness.stats",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.qv",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.spectra-asm.fl.png",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.spectra-asm.ln.png",
+                "Acropora_cervicornis_hap1/merqury/Acropora_cervicornis.hap1.spectra-asm.st.png",
+                "Acropora_cervicornis_hap1/statistics",
+                "Acropora_cervicornis_hap1/statistics/Acropora_cervicornis.hap1.assembly_summary",
+                "Acropora_cervicornis_hap1/statistics/Acropora_cervicornis.hap1.stats",
+                "pipeline_info",
+                "pipeline_info/fastk_genome_statistics_software_versions.yml"
+            ],
+            [
+                ".Acropora_cervicornis.ktab.1:md5,196395ab26610cf86564374211875a1b",
+                ".Acropora_cervicornis.ktab.2:md5,ea5ab8af2920660042fbe93bda1b4be3",
+                ".Acropora_cervicornis.ktab.3:md5,60d4f451a913736bbca4d81233078152",
+                ".Acropora_cervicornis.ktab.4:md5,a32d834b9dba0888a90ba90ce6f1d47b",
+                "Acropora_cervicornis.hist:md5,7d520daa05f5d7212d6f04a153090ff5",
+                "Acropora_cervicornis.ktab:md5,5e711dacd75475ab5439f9a632155585",
+                "Acropora_cervicornis_model.txt:md5,a7ee9ddf01dd429100e8f45e4233c53c",
+                "Acropora_cervicornis_summary.txt:md5,4f0a7343918fc2225756e1619bc8ec5c",
+                "Acropora_cervicornis.smudge_report.tsv:md5,6ac3d8a13138efbd946888eb17715c3a",
+                "Acropora_cervicornis_centralities.txt:md5,004742bde631c578911fec5ebb7ebe68",
+                "Acropora_cervicornis.hap1.completeness.stats:md5,2c72abc8c459b6299709016a7fe56b50",
+                "Acropora_cervicornis.hap1.qv:md5,21467fc41848f20e4650e95c67b6ef9f",
+                "Acropora_cervicornis.hap1.assembly_summary:md5,5578eaa18851b7412a974459ba2c48dc",
+                "Acropora_cervicornis.hap1.stats:md5,8f3bb883b3e4395d145536f7e48fa876"
+            ],
+            [
+                [
+                    "  \"version\": \"2.1.0\",",
+                    "  \"commandline_arguments\": \"--input Acropora_cervicornis.hist.txt -k31 --json_report --output . --name_prefix Acropora_cervicornis\",",
+                    "  \"input_parameters\": {",
+                    "    \"ploidy\": 2,",
+                    "    \"kmer_length\": 31,",
+                    "    \"initial_kmer_coverage\": null,"
+                ]
+            ],
+            [
+                [
+                    "ASMSTATS:",
+                    "  asmstats: 1.0.0",
+                    "  seqtk: 1.5-r133",
+                    "FASTK_FASTK:",
+                    "  fastk: 1.2",
+                    "FASTK_HISTEX:",
+                    "  fastk: 1.2",
+                    "GENOMESCOPE2:",
+                    "  genomescope2: 2.0",
+                    "GFASTATS:",
+                    "  gfastats: 1.3.11",
+                    "MERQURYFK_MERQURYFK:",
+                    "  R: 4.3.3",
+                    "  fastk: 1.2",
+                    "  merquryfk: 1.2",
+                    "SMUDGEPLOT_ALL:",
+                    "  fastk: 1.2",
+                    "  smudgeplot: 0.5.3",
+                    "SMUDGEPLOT_HETMERS:",
+                    "  fastk: 1.2",
+                    "  smudgeplot: 0.5.3",
+                    "Workflow:",
+                    "    sanger-tol/fastk_genome_statistics: v0.1.0"
+                ]
+            ]
+        ],
+        "timestamp": "2026-09-14T10:10:05.080674878",
+        "meta": {
+            "nf-test": "0.9.5",
+            "nextflow": "26.04.0"
+        }
+    }
+}

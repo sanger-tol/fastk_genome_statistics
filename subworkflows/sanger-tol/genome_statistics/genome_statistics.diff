@@ -1,0 +1,20 @@
+Changes in component 'sanger-tol/genome_statistics'
+'subworkflows/sanger-tol/genome_statistics/meta.yml' is unchanged
+Changes in 'genome_statistics/main.nf':
+--- subworkflows/sanger-tol/genome_statistics/main.nf
++++ subworkflows/sanger-tol/genome_statistics/main.nf
+@@ -110,7 +110,7 @@
+     //
+     ch_statistics_output = ASMSTATS.out.stats
+         .mix(GFASTATS.out.assembly_summary)
+-        .map { meta, stats -> [meta - meta.subMap("_hap"), stats] }
++        //.map { meta, stats -> [meta - meta.subMap("_hap"), stats] }
+         .groupTuple()
+         .map { meta, out -> [meta, out.flatten().sort { f -> f.getName() }] }
+ 
+
+'subworkflows/sanger-tol/genome_statistics/tests/fastk.config' is unchanged
+'subworkflows/sanger-tol/genome_statistics/tests/main.nf.test' is unchanged
+'subworkflows/sanger-tol/genome_statistics/tests/main.nf.test.snap' is unchanged
+'subworkflows/sanger-tol/genome_statistics/tests/no_fastk.config' is unchanged
+************************************************************

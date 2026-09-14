@@ -10,18 +10,43 @@
             "type": "object",
             "fa_icon": "fas fa-terminal",
             "description": "Define where the pipeline should find input data and save output data.",
-            "required": ["input", "outdir"],
+            "required": ["sample", "input", "longreads", "outdir"],
             "properties": {
-                "input": {
+                "sample": {
                     "type": "string",
-                    "format": "file-path",
-                    "exists": true,
-                    "schema": "assets/schema_input.json",
-                    "mimetype": "text/csv",
-                    "pattern": "^\\S+\\.csv$",
-                    "description": "Path to comma-separated file containing information about the samples in the experiment.",
-                    "help_text": "You will need to create a design file with information about the samples in your experiment before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 columns, and a header row.",
-                    "fa_icon": "fas fa-file-csv"
+                    "description": "Sample name",
+                    "help_text": "ID for the sample to process",
+                    "fa_icon": "fas fa-sample"
+                },
+                "kmer_length": {
+                    "type": "integer",
+                    "description": "K-mer length",
+                    "help_text": "K-mer length for the fastk analysis",
+                    "fa_icon": "fas fa-hashtag"
+                },
+                "input": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "path",
+                        "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$"
+                    },
+                    "description": "Input assembly files",
+                    "help_text": "You need the input fasta file array",
+                    "fa_icon": "fas fa-file-signature",
+                    "exists": true
+                },
+                "longreads": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "path",
+                        "pattern": "(^\\S+\\.fn?a(sta)?(\\.gz)?)$|(^\\S+\\.fa(stq)?(\\.gz)?)$"
+                    },
+                    "description": "Input read files in zipped fastq or fasta format",
+                    "help_text": "You need the input read file array",
+                    "fa_icon": "fas fa-file-signature",
+                    "exists": true
                 },
                 "outdir": {
                     "type": "string",
