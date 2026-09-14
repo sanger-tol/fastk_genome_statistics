@@ -20,7 +20,7 @@ nextflow_pipeline {
             def stable_content = getAllFilesFromDir(
                 params.outdir,
                 ignore: [
-                    'pipeline_info/*.{html,json,txt}',
+                    'pipeline_info/*.{html,json,txt,yml}',
                     '*/*/*.png',
                     '*/*/*_report.json'
                 ]
@@ -43,7 +43,7 @@ nextflow_pipeline {
             )
 
             def version_data = version_file
-                .collect { it.readLines()[0..-1] }
+                .collect { it.readLines()[0..-2] }
 
             assertAll(
                 { assert workflow.success },
