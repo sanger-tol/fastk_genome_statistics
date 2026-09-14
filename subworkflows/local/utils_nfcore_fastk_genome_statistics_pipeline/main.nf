@@ -60,7 +60,7 @@ workflow PIPELINE_INITIALISATION {
         before_text = before_text.replaceAll(/\033\[[0-9;]*m/, '')
     }
 
-    command = "nextflow run ${workflow.manifest.name} -profile <docker/singularity/.../institute> --fasta <FASTA> --outdir <OUTDIR>"
+    command = "nextflow run ${workflow.manifest.name} -profile <docker/singularity/.../institute> --input <FASTA> --outdir <OUTDIR>"
 
     UTILS_NFSCHEMA_PLUGIN (
         workflow,
@@ -83,10 +83,10 @@ workflow PIPELINE_INITIALISATION {
     )
 
     //
-    // Create channel from input file provided through params.fasta
+    // Create channel from input file provided through params.input
     //
     ch_assemblies = channel.of(
-        tuple( [ id: params.sample ], params.fasta)
+        tuple( [ id: params.sample ], params.input)
     )
 
     ch_longreads = channel.of(

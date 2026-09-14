@@ -24,7 +24,7 @@
                     "help_text": "K-mer length for the fastk analysis",
                     "fa_icon": "fas fa-hashtag"
                 },
-                "fasta": {
+                "input": {
                     "type": "array",
                     "items": {
                         "type": "string",
