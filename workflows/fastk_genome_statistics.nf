@@ -4,11 +4,16 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+//
 include { FASTK_FASTK           } from '../modules/nf-core/fastk/fastk/main'
 include { FASTK_HISTEX          } from '../modules/nf-core/fastk/histex/main'
 include { GENOMESCOPE2          } from '../modules/nf-core/genomescope2/main'
+
+//
 include { SMUDGEPLOT_HETMERS    } from '../modules/local/smudgeplot/hetmers/main'
 include { SMUDGEPLOT_ALL        } from '../modules/local/smudgeplot/all/main'
+
+// SANGER-TOL SUBWORKFLOW IMPORTS
 include { GENOME_STATISTICS     } from '../subworkflows/sanger-tol/genome_statistics/main'
 
 
@@ -46,7 +51,7 @@ workflow FASTK_GENOME_STATISTICS {
     // MODULE: RUN FASTK HISTEX TO CONVERT .hist TO .txt
     //
     FASTK_HISTEX(
-        FASTK_FASTK.out.hist
+        FASTK_FASTK.out.hist.filter { _meta, _hist -> params.run_histex}
     )
 
 
@@ -54,7 +59,7 @@ workflow FASTK_GENOME_STATISTICS {
     // MODULE:
     //
     GENOMESCOPE2(
-        FASTK_HISTEX.out.hist
+        FASTK_HISTEX.out.hist.filter { _meta, _hist -> params.run_genomescope}
     )
 
 

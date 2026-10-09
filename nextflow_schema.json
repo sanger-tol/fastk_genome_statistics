@@ -24,6 +24,18 @@
                     "help_text": "K-mer length for the fastk analysis",
                     "fa_icon": "fas fa-hashtag"
                 },
+                "ploidy": {
+                    "type": "integer",
+                    "description": "Ploidy",
+                    "help_text": "Ploidy for the fastk analysis",
+                    "fa_icon": "fas fa-hashtag"
+                },
+                "initial_hap_cov": {
+                    "type": "integer",
+                    "description": "Initial haplotype coverage",
+                    "help_text": "Initial haplotype coverage for the fastk analysis",
+                    "fa_icon": "fas fa-hashtag"
+                },
                 "input": {
                     "type": "array",
                     "items": {
@@ -53,6 +65,16 @@
                     "format": "directory-path",
                     "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
                     "fa_icon": "fas fa-folder-open"
+                },
+                "run_genomescope": {
+                    "type": "boolean",
+                    "description": "Run GenomeScope2 on the input reads",
+                    "fa_icon": ""
+                },
+                "run_histex": {
+                    "type": "boolean",
+                    "description": "Run HistEx on the input reads",
+                    "fa_icon": ""
                 },
                 "email": {
                     "type": "string",
