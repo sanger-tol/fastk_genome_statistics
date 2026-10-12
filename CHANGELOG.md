@@ -1,15 +1,15 @@
-# sanger-tol/fastk_genome_statistics: Changelog
+# sanger-tol/genomeprofiling: Changelog
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## v0.1.0 - Rapid Wrapper [unreleased]
 
-Initial release of sanger-tol/fastk_genome_statistics, created with the [nf-core](https://nf-co.re/) template.
+Initial release of sanger-tol/genomeprofiling, created with the [nf-core](https://nf-co.re/) template.
 
 ### `Added`
 
-- Added the `sanger-tol/genomestatistics` subworkflow
+- Added the `sanger-tol/genomeprofiling` subworkflow
   - This includes the `nf-core` modules `BUSCO_BUSCO`, `GFASTATS`, and `MERQURYFK_MERQURYFK`
   - This includes the `sanger-tol` module `ASMSTATS`
 - Added `nf-core` modules `GENOMESCOPE2`, `FASTK_FASTK` and `FASTK_HISTEX`

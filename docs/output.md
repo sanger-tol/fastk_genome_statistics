@@ -1,4 +1,4 @@
-# sanger-tol/fastk_genome_statistics: Output
+# sanger-tol/genomeprofiling: Output
 
 ## Introduction
 
