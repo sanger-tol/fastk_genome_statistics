@@ -1,6 +1,6 @@
 {
-    "name": "sanger-tol/fastk_genome_statistics",
-    "homePage": "https://github.com/sanger-tol/fastk_genome_statistics",
+    "name": "sanger-tol/genomeprofiling",
+    "homePage": "https://github.com/sanger-tol/genomeprofiling",
     "repos": {
         "https://github.com/nf-core/modules.git": {
             "modules": {

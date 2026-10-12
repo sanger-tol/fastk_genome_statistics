@@ -4,17 +4,22 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
+//
 include { FASTK_FASTK           } from '../modules/nf-core/fastk/fastk/main'
 include { FASTK_HISTEX          } from '../modules/nf-core/fastk/histex/main'
 include { GENOMESCOPE2          } from '../modules/nf-core/genomescope2/main'
+
+//
 include { SMUDGEPLOT_HETMERS    } from '../modules/local/smudgeplot/hetmers/main'
 include { SMUDGEPLOT_ALL        } from '../modules/local/smudgeplot/all/main'
+
+// SANGER-TOL SUBWORKFLOW IMPORTS
 include { GENOME_STATISTICS     } from '../subworkflows/sanger-tol/genome_statistics/main'
 
 
 include { paramsSummaryMap       } from 'plugin/nf-schema'
 include { softwareVersionsToYAML } from '../subworkflows/nf-core/utils_nfcore_pipeline'
-include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_fastk_genome_statistics_pipeline'
+include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_genomeprofiling_pipeline'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -22,7 +27,7 @@ include { methodsDescriptionText } from '../subworkflows/local/utils_nfcore_fast
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-workflow FASTK_GENOME_STATISTICS {
+workflow GENOMEPROFILING {
 
     take:
     ch_assemblies   // channel: [meta, [assemblies...]]
@@ -46,7 +51,7 @@ workflow FASTK_GENOME_STATISTICS {
     // MODULE: RUN FASTK HISTEX TO CONVERT .hist TO .txt
     //
     FASTK_HISTEX(
-        FASTK_FASTK.out.hist
+        FASTK_FASTK.out.hist.filter { _meta, _hist -> params.run_histex}
     )
 
 
@@ -54,7 +59,7 @@ workflow FASTK_GENOME_STATISTICS {
     // MODULE:
     //
     GENOMESCOPE2(
-        FASTK_HISTEX.out.hist
+        FASTK_HISTEX.out.hist.filter { _meta, _hist -> params.run_genomescope}
     )
 
 
@@ -118,7 +123,7 @@ workflow FASTK_GENOME_STATISTICS {
         .mix(topic_versions_string)
         .collectFile(
             storeDir: "${outdir}/pipeline_info",
-            name:  'fastk_genome_statistics_software_'  + 'versions.yml',
+            name:  'genomeprofiling_software_'  + 'versions.yml',
             sort: true,
             newLine: true
         )

@@ -1,6 +1,6 @@
-# sanger-tol/fastk_genome_statistics: Documentation
+# sanger-tol/genomeprofiling: Documentation
 
-The sanger-tol/fastk_genome_statistics documentation is split into the following pages:
+The sanger-tol/genomeprofiling documentation is split into the following pages:
 
 - [Usage](usage.md)
   - An overview of how the pipeline works, how to run it and a description of all of the different command-line flags.

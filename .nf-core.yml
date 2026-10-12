@@ -6,9 +6,9 @@ lint:
   files_unchanged:
     - assets/sendmail_template.txt
     - CODE_OF_CONDUCT.md
-    - assets/nf-core-fastk_genome_statistics_logo_light.png
-    - docs/images/nf-core-fastk_genome_statistics_logo_light.png
-    - docs/images/nf-core-fastk_genome_statistics_logo_dark.png
+    - assets/nf-core-genomeprofiling_logo_light.png
+    - docs/images/nf-core-genomeprofiling_logo_light.png
+    - docs/images/nf-core-genomeprofiling_logo_dark.png
     - .github/ISSUE_TEMPLATE/bug_report.yml
     - .github/PULL_REQUEST_TEMPLATE.md
     - assets/email_template.txt
@@ -23,16 +23,16 @@ lint:
     - conf/igenomes.config
     - conf/igenomes_ignored.config
     - CODE_OF_CONDUCT.md
-    - assets/nf-core-fastk_genome_statistics_logo_light.png
-    - docs/images/nf-core-fastk_genome_statistics_logo_light.png
-    - docs/images/nf-core-fastk_genome_statistics_logo_dark.png
+    - assets/nf-core-genomeprofiling_logo_light.png
+    - docs/images/nf-core-genomeprofiling_logo_light.png
+    - docs/images/nf-core-genomeprofiling_logo_dark.png
     - .github/ISSUE_TEMPLATE/config.yml
     - .github/workflows/awstest.yml
     - .github/workflows/awsfulltest.yml
 
 template:
   org: sanger-tol
-  name: fastk_genome_statistics
+  name: genomeprofiling
   description: A small pipeline to fastk and some related statistics tools
   author: DLBPointon
   version: 0.1.0

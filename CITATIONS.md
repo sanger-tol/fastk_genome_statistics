@@ -1,4 +1,4 @@
-# sanger-tol/fastk_genome_statistics: Citations
+# sanger-tol/genomeprofiling: Citations
 
 ## [nf-core](https://pubmed.ncbi.nlm.nih.gov/32055031/)
 

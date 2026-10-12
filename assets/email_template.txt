@@ -1,10 +1,10 @@
 Run Name: $runName
 
 <% if (success){
-    out << "## sanger-tol/fastk_genome_statistics execution completed successfully! ##"
+    out << "## sanger-tol/genomeprofiling execution completed successfully! ##"
 } else {
     out << """####################################################
-## sanger-tol/fastk_genome_statistics execution completed unsuccessfully! ##
+## sanger-tol/genomeprofiling execution completed unsuccessfully! ##
 ####################################################
 The exit status of the task that caused the workflow execution to fail was: $exitStatus.
 The full error message was:
@@ -27,5 +27,5 @@ Pipeline Configuration:
 <% out << summary.collect{ k,v -> " - $k: $v" }.join("\n") %>
 
 --
-sanger-tol/fastk_genome_statistics
-https://github.com/sanger-tol/fastk_genome_statistics
+sanger-tol/genomeprofiling
+https://github.com/sanger-tol/genomeprofiling

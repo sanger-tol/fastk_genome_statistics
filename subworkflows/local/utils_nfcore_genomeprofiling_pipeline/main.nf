@@ -1,5 +1,5 @@
 //
-// Subworkflow with functionality specific to the sanger-tol/fastk_genome_statistics pipeline
+// Subworkflow with functionality specific to the sanger-tol/genomeprofiling pipeline
 //
 
 /*
