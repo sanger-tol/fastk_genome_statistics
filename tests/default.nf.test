@@ -38,7 +38,7 @@ nextflow_pipeline {
             def version_file = getAllFilesFromDir(
                 params.outdir,
                 include: [
-                    'pipeline_info/fastk_genome_statistics_software_versions.yml'
+                    'pipeline_info/genomeprofiling_software_versions.yml'
                 ]
             )
 
@@ -49,7 +49,7 @@ nextflow_pipeline {
                 { assert workflow.success },
                 { assert snapshot(
                     // pipeline versions.yml file for multiqc from which Nextflow version is removed because we test pipelines on multiple Nextflow versions
-                    removeNextflowVersion("$outputDir/pipeline_info/fastk_genome_statistics_software_versions.yml"),
+                    removeNextflowVersion("$outputDir/pipeline_info/genomeprofiling_software_versions.yml"),
                     // All stable path name, with a relative path
                     stable_path,
                     // All files with stable contents
