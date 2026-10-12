@@ -32,7 +32,7 @@
                     "smudgeplot": "0.5.3"
                 },
                 "Workflow": {
-                    "sanger-tol/fastk_genome_statistics": "v0.1.0"
+                    "sanger-tol/genomeprofiling": "v0.1.0"
                 }
             },
             [
@@ -72,7 +72,7 @@
                 "Acropora_cervicornis_hap1/statistics/Acropora_cervicornis.hap1.assembly_summary",
                 "Acropora_cervicornis_hap1/statistics/Acropora_cervicornis.hap1.stats",
                 "pipeline_info",
-                "pipeline_info/fastk_genome_statistics_software_versions.yml"
+                "pipeline_info/genomeprofiling_software_versions.yml"
             ],
             [
                 ".Acropora_cervicornis.ktab.1:md5,196395ab26610cf86564374211875a1b",
@@ -124,7 +124,7 @@
                     "  fastk: 1.2",
                     "  smudgeplot: 0.5.3",
                     "Workflow:",
-                    "    sanger-tol/fastk_genome_statistics: v0.1.0"
+                    "    sanger-tol/genomeprofiling: v0.1.0"
                 ]
             ]
         ],

@@ -123,7 +123,7 @@ workflow GENOMEPROFILING {
         .mix(topic_versions_string)
         .collectFile(
             storeDir: "${outdir}/pipeline_info",
-            name:  'fastk_genome_statistics_software_'  + 'versions.yml',
+            name:  'genomeprofiling_software_'  + 'versions.yml',
             sort: true,
             newLine: true
         )
